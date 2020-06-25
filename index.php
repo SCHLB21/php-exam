@@ -20,10 +20,12 @@ require "includes/input_type.php";
             $get_session = "SELECT * FROM `".$_GET['link']."`";
             $session = mysqli_query($link, $get_session) or die("Ошибка " . mysqli_error($link));
             while($s_row=mysqli_fetch_assoc($session)) {
-                $a_row=mysqli_fetch_row($session);
                 print_r($s_row);
-                for ($i = 0; $i > count($s_row); $i += 2) {
-                    echo $a_row[$i];
+                $for = 0;
+                foreach($s_row AS $key => $value){
+                    $for+=1;
+                    if($for%2==0){continue;}
+                    echo '<label for="'.$key.'">'.$value.'</label><input '.get_type($s_row[$key.'_type']).'>';
                 }
             }
         }else{
