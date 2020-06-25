@@ -60,7 +60,7 @@ require "includes/input_type.php";
         }
         mb_substr($elements, 0, -2);
         echo $elements;
-        print_r($_POST);
+//        print_r($_POST);
 
 //        $post_query ="INSERT INTO ".$table_name."VALUES('".$;
     }
