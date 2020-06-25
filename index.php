@@ -19,7 +19,7 @@ require "includes/input_type.php";
             <form action="/" method="post">';
             $get_session = "SELECT * FROM `".$_GET['link']."`";
             $session = mysqli_query($link, $get_session) or die("Ошибка " . mysqli_error($link));
-            while($s_row=mysqli_fetch_row($session)) {
+            while($s_row=mysqli_fetch_assoc($session)) {
                 print_r($s_row);
                 for ($i = 0; $i > count($s_row); $i += 2) {
 
