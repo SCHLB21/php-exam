@@ -58,7 +58,7 @@ require "includes/input_type.php";
         foreach ($_POST AS $element){
             $elements.="'".$element."',";
         }
-        mb_substr($elements, 0, -2);
+        mb_substr($elements, 0, -3);
         echo $elements;
 //        print_r($_POST);
 
