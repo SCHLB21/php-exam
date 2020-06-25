@@ -53,9 +53,9 @@ require "includes/input_type.php";
     </div>
     <?php
     if (!empty($_POST)){
-        echo 'ПРИВЕТТТТ';
-        echo 'ПРИВЕТТТТ';
-        echo 'ПРИВЕТТТТ';
+        $table_name= $_GET['link'].'answers';
+        print_r($_POST);
+//        $post_query ="INSERT INTO ".$table_name."VALUES('".$;
     }
     mysqli_close($link);
     ?>
