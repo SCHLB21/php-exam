@@ -24,7 +24,9 @@ require "includes/input_type.php";
             foreach($s_row AS $key => $value){
                 $for+=1;
                 if($for%2==0){continue;}
-                echo '<label for="'.$key.'">'.$value.'</label><input '.get_type($s_row[$key.'_type']).' required></br>';
+                if($s_row[$key.'_type']!='checkbox' && $s_row[$key.'_type']!='radio') {
+                    echo '<label for="' . $key . '">' . $value . '</label><input ' . get_type($s_row[$key . '_type']) . ' required></br>';
+                }
             }
             echo '<input type="submit" value="Отправить">';
         }else{
