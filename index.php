@@ -26,6 +26,23 @@ require "includes/input_type.php";
                 if($for%2==0){continue;}
                 if($s_row[$key.'_type']!='checkbox' && $s_row[$key.'_type']!='radio') {
                     echo '<label for="' . $key . '">' . $value . '</label><input ' . get_type($s_row[$key . '_type']) . ' required></br>';
+                }elseif ($s_row[$key.'_type']=='radio'){
+                    $radio = explode(",", $value);
+                    $count_radio=0;
+                    echo '<p>Выберите ответ: </p></br>';
+                    foreach ($radio AS $item){
+                        echo'<label for="'.$key.$count_radio.'">'.$item.'</label>'.
+                        '<input type="radio" id="'.$key.$count_radio.'" name="'.$key.'" value="'.$item.'"</br>';
+                        $count_radio++;
+                    }
+                }elseif ($s_row[$key.'_type']=='checkbox'){
+                    $checkbox = explode(",", $value);
+                    $count_checkbox=0;
+                    echo '<p>Выберите один или несколько вариантов: </p></br>';
+                    foreach ($checkbox AS $item){
+                        echo '<input type="checkbox" name="'.$key.$count_checkbox.'" value="'.$item.'">'.$item.'</br>';
+                        $count_checkbox++;
+                    }
                 }
             }
             echo '<input type="submit" value="Отправить">';
