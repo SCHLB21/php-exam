@@ -11,6 +11,7 @@ require "includes/input_type.php";
 </head>
 <body>
     <div class="container">
+        <a href="http://php-exam.std-924.ist.mospolytech.ru/?link=2UDwTZhJs7">Ссылка на сессию</a>
         <a href="admin.php">Зайти от имени администратора</a>
         <?php
         $get_link ="SELECT * FROM `sessions` WHERE `session_link`= '".$_GET['link']."'";
