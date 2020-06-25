@@ -53,7 +53,7 @@ require "includes/input_type.php";
     </div>
     <?php
     if (!empty($_POST)){
-        $table_name= $_GET['link'].'answers';
+        $table_name= '2UDwTZhJs7answers';
         $elements="";
         foreach ($_POST AS $element){
             $elements.="'".$element."',";
@@ -61,7 +61,6 @@ require "includes/input_type.php";
         $elements = mb_substr($elements, 0, -1);
         $elements = mb_substr($elements, 0, -1);
         $elements.="'";
-        echo $elements;
 //        print_r($_POST);
 
         $post_query ="INSERT INTO `".$table_name."` VALUES(".$elements.")";
