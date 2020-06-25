@@ -13,13 +13,14 @@
         <label for="question"></label><input type="text" id="question">
         </form>
     </div>
+    <?php
+    $query ="SELECT * FROM `sessions`";
+    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+    while($row = mysqli_fetch_row($result)){
+
+        echo $row[0];
+    }
+    mysqli_close($link);
+    ?>
 </body>
 </html>
-<?php
-$query ="SELECT * FROM `sessions`";
-$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-while($row = mysqli_fetch_row($result)){
-
-    echo $row[0];
-}
-mysqli_close($link);
