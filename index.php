@@ -16,7 +16,7 @@ require "includes/input_type.php";
         $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
         if(mysqli_num_rows($result)!=0){
             echo '<h1>Опрос на тему "'.mysqli_fetch_row($result)[2].'"</h1>
-            <form action="/" method="post">';
+            <form action="/?post='.$_GET['link'].'" method="post">';
             $get_session = "SELECT * FROM `".$_GET['link']."`";
             $session = mysqli_query($link, $get_session) or die("Ошибка " . mysqli_error($link));
             $s_row=mysqli_fetch_assoc($session);
@@ -53,7 +53,7 @@ require "includes/input_type.php";
     </div>
     <?php
     if (!empty($_POST)){
-        $table_name= '2UDwTZhJs7answers';
+        $table_name= $_GET['post'].'answers';
         $elements="";
         foreach ($_POST AS $element){
             $elements.="'".$element."',";
@@ -63,7 +63,7 @@ require "includes/input_type.php";
         $elements.="'";
 //        print_r($_POST);
 
-        $post_query ="INSERT INTO `".$table_name."` VALUES(".$elements.")";
+        $post_query ="INSERT INTO ".$table_name." VALUES(".$elements.")";
         $add_answer = mysqli_query($link, $post_query) or die("Ошибка " . mysqli_error($link));
     }
     mysqli_close($link);
