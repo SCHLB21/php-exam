@@ -14,7 +14,7 @@ if(!empty($_POST)|| $_GET['status']){
     if($_POST['password']=='12345' || $_GET['status']='add'){
         echo 'Доступ получен </br>';
         echo '<a href="?status=add">Добавить новую сессию</a>';
-        echo '<a href="/>Выйти</a>';
+        echo '<a href="/">Выйти</a>';
         if($_GET['status']=='add'){
             echo'
             <h1>Создание новой сессии</h1></br>
