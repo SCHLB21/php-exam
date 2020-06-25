@@ -11,7 +11,16 @@
 <?php
 if(!empty($_POST)){
     if($_POST['password']=='12345'){
-        echo 'Доступ получен';
+        echo 'Доступ получен </br>';
+        echo '<a href="?status=add">';
+        if($_GET['status']=='add'){
+            echo'
+            <h1>Создание новой сессии</h1></br>
+            <label for="count_questions">Выберете количество вопросов</label>
+            <input type="number" id="count_questions">
+            
+            ';
+        }
     }else{
         echo 'До связи...';
     }
@@ -23,5 +32,11 @@ if(!empty($_POST)){
     </form>';
 }
 ?>
+<script>
+    var count_questions = document.getElementById('count_questions');
+    for (let i =0; i< count_questions.value; i++){
+        count_questions+="<input type='text'>"
+    }
+</script>
 </body>
 </html>
