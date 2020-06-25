@@ -68,7 +68,7 @@ require "includes/input_type.php";
         $post_query ="INSERT INTO ".$table_name." VALUES(".$elements.")";
         $add_answer = mysqli_query($link, $post_query) or die("Ошибка " . mysqli_error($link));
         echo "Ответы учтены";
-
+        echo "ip пользователя".$_SERVER['REMOTE_ADDR'];
     }
     mysqli_close($link);
     ?>
