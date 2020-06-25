@@ -16,7 +16,7 @@
 </body>
 </html>
 <?php
-$query ="SELECT * FROM `table_name`";
+$query ="SELECT * FROM `sessions`";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 while($row = mysqli_fetch_row($result)){
 
