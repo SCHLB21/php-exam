@@ -1,4 +1,7 @@
-<?php require "includes/bd.php"; ?>
+<?php
+require "includes/bd.php";
+require "includes/input_type.php";
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -13,11 +16,17 @@
         $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
         if(mysqli_num_rows($result)!=0){
             echo '<h1>Опрос на тему "Вставить текст"</h1>
-        <form action="/" method="post">
-        <label for="question"></label><input type="text" id="question">
-        </form>';
+            <form action="/" method="post">';
+            $get_session = "SELECT * FROM `".$_GET['link']."`";
+            $session = mysqli_query($link, $get_session) or die("Ошибка " . mysqli_error($link));
+            while($s_row=mysqli_fetch_row($session)) {
+                print_r($s_row);
+                for ($i = 0; $i > count($s_row); $i += 2) {
+
+                }
+            }
         }else{
-            echo '<h1>Неккоректная ссылка</h1>';
+            echo '<h1>Некорректная ссылка</h1>';
         }
         ?>
     </div>
