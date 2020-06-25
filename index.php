@@ -52,6 +52,9 @@ require "includes/input_type.php";
         ?>
     </div>
     <?php
+    if (!empty($_POST)){
+        echo 'ПРИВЕТТТТ';
+    }
     mysqli_close($link);
     ?>
 </body>
