@@ -54,6 +54,8 @@ require "includes/input_type.php";
     <?php
     if (!empty($_POST)){
         echo 'ПРИВЕТТТТ';
+        echo 'ПРИВЕТТТТ';
+        echo 'ПРИВЕТТТТ';
     }
     mysqli_close($link);
     ?>
