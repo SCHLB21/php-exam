@@ -11,7 +11,7 @@
 <?php
 require "includes/bd.php";
 if(!empty($_POST)|| $_GET['status']='add'){
-    if($_POST['password']=='12345' || $_GET['status']='add'){
+    if($_POST['password']=='12345'){
         echo 'Доступ получен </br>';
         echo '<a href="?status=add">Добавить новую сессию</a>';
         if($_GET['status']=='add'){
