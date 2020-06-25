@@ -60,7 +60,7 @@ require "includes/input_type.php";
         }
         $elements = mb_substr($elements, 0, -1);
         $elements = mb_substr($elements, 0, -1);
-        $elements.="'";
+        $elements+="'";
         echo $elements;
 //        print_r($_POST);
 
