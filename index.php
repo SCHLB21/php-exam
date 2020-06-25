@@ -19,13 +19,12 @@ require "includes/input_type.php";
             <form action="/" method="post">';
             $get_session = "SELECT * FROM `".$_GET['link']."`";
             $session = mysqli_query($link, $get_session) or die("Ошибка " . mysqli_error($link));
-            while($s_row=mysqli_fetch_assoc($session)) {
-                $for = 0;
-                foreach($s_row AS $key => $value){
-                    $for+=1;
-                    if($for%2==0){continue;}
-                    echo '<label for="'.$key.'">'.$value.'</label><input '.get_type($s_row[$key.'_type']).' required></br>';
-                }
+            $s_row=mysqli_fetch_assoc($session);
+            $for = 0;
+            foreach($s_row AS $key => $value){
+                $for+=1;
+                if($for%2==0){continue;}
+                echo '<label for="'.$key.'">'.$value.'</label><input '.get_type($s_row[$key.'_type']).' required></br>';
             }
         }else{
             echo '<h1>Некорректная ссылка</h1>';
@@ -33,12 +32,6 @@ require "includes/input_type.php";
         ?>
     </div>
     <?php
-    $query ="SELECT * FROM `sessions`";
-
-    while($row = mysqli_fetch_row($result)){
-
-        echo $row[0];
-    }
     mysqli_close($link);
     ?>
 </body>
