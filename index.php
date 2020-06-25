@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="container">
+        <?php
+        $get_link ="SELECT * FROM `sessions`SELECT * FROM `sessions` WHERE `session_link`= '".$_GET['link']."'";
+        ?>
         <h1>Опрос на тему "Вставить текст"</h1>
         <form action="/" method="post">
         <label for="question"></label><input type="text" id="question">
@@ -15,7 +18,7 @@
     </div>
     <?php
     $query ="SELECT * FROM `sessions`";
-    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+    $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
     while($row = mysqli_fetch_row($result)){
 
         echo $row[0];
