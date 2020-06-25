@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <?php
-        $get_link ="SELECT * FROM `sessions`SELECT * FROM `sessions` WHERE `session_link`= '2UDwTZhJs7'";
+        $get_link ="SELECT * FROM `sessions` WHERE `session_link`= '".$_GET['link']."'";
         ?>
         <h1>Опрос на тему "Вставить текст"</h1>
         <form action="/" method="post">
