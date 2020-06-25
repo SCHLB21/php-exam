@@ -25,7 +25,7 @@ require "includes/input_type.php";
                 $for+=1;
                 if($for%2==0){continue;}
                 if($s_row[$key.'_type']!='checkbox' && $s_row[$key.'_type']!='radio') {
-                    echo '<label for="' . $key . '">' . $value . '</label><input ' . get_type($s_row[$key . '_type']) . ' required></br>';
+                    echo '<label for="' . $key . '">' . $value . '</label><input ' . get_type($s_row[$key . '_type']) .'name="'.$key. '" required></br>';
                 }elseif ($s_row[$key.'_type']=='radio'){
                     $radio = explode(",", $value);
                     $count_radio=0;
@@ -52,11 +52,11 @@ require "includes/input_type.php";
         ?>
     </div>
     <?php
-    if ($_POST){
-        echo 'ПРИВЕТТТТ';
-        echo 'ПРИВЕТТТТ';
-        echo 'ПРИВЕТТТТ';
-    }
+//    if ($_POST[]){
+//        echo 'ПРИВЕТТТТ';
+//        echo 'ПРИВЕТТТТ';
+//        echo 'ПРИВЕТТТТ';
+//    }
     mysqli_close($link);
     ?>
 </body>
