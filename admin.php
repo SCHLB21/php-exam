@@ -27,8 +27,17 @@ if(!empty($_POST)|| $_GET['status']='add'){
             }
             for($i=0; $i<$_POST['count_questions']; $i++){
                 echo '
-                <label for="question'.$i.'"></label>
-                <input type="text" id="question'.$i.'"><br>
+                <label for="question'.$i.'">Вопрос </label>
+                <input type="text" id="question'.$i.'">
+                <select name="" id="">
+                    <option value="number">Число</option>
+                    <option value="positive_number">Положительно число</option>
+                    <option value="small_text">строка</option>
+                    <option value="big_text">текст</option>
+                    <option value="radio">С единственным выбором</option>
+                    <option value="checkbox">С множественным выбором</option>
+                </select>
+                <br>
                 ';
             }
             if($_POST['count_questions']){
