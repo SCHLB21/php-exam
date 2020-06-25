@@ -60,11 +60,12 @@ require "includes/input_type.php";
         }
         $elements = mb_substr($elements, 0, -1);
         $elements = mb_substr($elements, 0, -1);
-        $elements.=" '";
+        $elements.="'";
         echo $elements;
 //        print_r($_POST);
 
-//        $post_query ="INSERT INTO ".$table_name."VALUES('".$;
+        $post_query ="INSERT INTO ".$table_name."VALUES(".$elements.")";
+        $add_answer = mysqli_query($link, $post_query) or die("Ошибка " . mysqli_error($link));
     }
     mysqli_close($link);
     ?>
