@@ -9,6 +9,7 @@
 </head>
 <body>
 <?php
+require "includes/bd.php";
 if(!empty($_POST)|| $_GET['status']='add'){
     if($_POST['password']=='12345' || $_GET['status']='add'){
         echo 'Доступ получен </br>';
@@ -41,7 +42,7 @@ if(!empty($_POST)|| $_GET['status']='add'){
                 ';
             }
             if($_POST['count_questions']){
-
+                echo '<input type="submit" value="Создать сессию">';
             }
             echo '</form>';
         }
