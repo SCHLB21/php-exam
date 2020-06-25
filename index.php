@@ -52,7 +52,7 @@ require "includes/input_type.php";
         ?>
     </div>
     <?php
-    if (empty($_POST)){
+    if (!empty($_POST)){
         echo 'ПРИВЕТТТТ';
         echo 'ПРИВЕТТТТ';
         echo 'ПРИВЕТТТТ';
