@@ -11,6 +11,7 @@ require "includes/input_type.php";
 </head>
 <body>
     <div class="container">
+        <a href="admin.php">Зайти от имени администратора</a>
         <?php
         $get_link ="SELECT * FROM `sessions` WHERE `session_link`= '".$_GET['link']."'";
         $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
@@ -65,6 +66,7 @@ require "includes/input_type.php";
 
         $post_query ="INSERT INTO ".$table_name." VALUES(".$elements.")";
         $add_answer = mysqli_query($link, $post_query) or die("Ошибка " . mysqli_error($link));
+        echo "Ответы учтены";
     }
     mysqli_close($link);
     ?>
