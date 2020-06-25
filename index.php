@@ -25,7 +25,7 @@ require "includes/input_type.php";
                 foreach($s_row AS $key => $value){
                     $for+=1;
                     if($for%2==0){continue;}
-                    echo '<label for="'.$key.'">'.$value.'</label><input '.get_type($s_row[$key.'_type']).'>';
+                    echo '<label for="'.$key.'">'.$value.'</label><input '.get_type($s_row[$key.'_type']).'></br>';
                 }
             }
         }else{
