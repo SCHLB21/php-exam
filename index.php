@@ -54,7 +54,14 @@ require "includes/input_type.php";
     <?php
     if (!empty($_POST)){
         $table_name= $_GET['link'].'answers';
+        $elements="";
+        foreach ($_POST AS $element){
+            $elements.="'".$element."',";
+        }
+        mb_substr($elements, 0, -2);
+        echo $elements;
         print_r($_POST);
+
 //        $post_query ="INSERT INTO ".$table_name."VALUES('".$;
     }
     mysqli_close($link);
