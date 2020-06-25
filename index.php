@@ -58,8 +58,8 @@ require "includes/input_type.php";
         foreach ($_POST AS $element){
             $elements.="'".$element."',";
         }
-        mb_substr($elements, 0, -1);
-        mb_substr($elements, 0, -1);
+        $elements = mb_substr($elements, 0, -1);
+        $elements = mb_substr($elements, 0, -1);
         $elements.="'";
         echo $elements;
 //        print_r($_POST);
