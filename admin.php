@@ -16,10 +16,25 @@ if(!empty($_POST)|| $_GET['status']='add'){
         if($_GET['status']=='add'){
             echo'
             <h1>Создание новой сессии</h1></br>
+            <form>
+            <label for="theme">Выберете тему</label>
+            <input type="text" id="theme"></br>
             <label for="count_questions">Выберете количество вопросов</label>
-            <input type="number" id="count_questions">
-            
+            <input type="number" id="count_questions" name="count_questions"></br>
             ';
+            if(!$_POST['count_questions']){
+                echo '<input type="submit" value="Выбрать">';
+            }
+            for($i=0; $i<$_POST['count_questions']; $i++){
+                echo '
+                <label for="question'.$i.'"></label>
+                <input type="text" id="question'.$i.'"><br>
+                ';
+            }
+            if($_POST['count_questions']){
+
+            }
+            echo '</form>';
         }
     }else{
         echo 'До связи...';
@@ -32,11 +47,5 @@ if(!empty($_POST)|| $_GET['status']='add'){
     </form>';
 }
 ?>
-<script>
-    var count_questions = document.getElementById('count_questions');
-    for (let i =0; i< count_questions.value; i++){
-        count_questions+="<input type='text'>"
-    }
-</script>
 </body>
 </html>
