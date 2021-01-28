@@ -55,7 +55,7 @@ session_start();
                             }
                         }else{
                             foreach ($radio as $num => $value) {
-                                echo '<input ' . get_type($question['type']) . ' id="question' . $key . $num . '" name="question' . $key . '" value="' . $value . '">';
+                                echo '<input ' . get_type($question['type']) . ' id="question' . $key . $num . '" name="question' . $key . '[]" value="' . $value . '">';
                                 echo '<label for="question' . $key . $num . '">' . $value . '</label><br><br>';
                             }
                         }
