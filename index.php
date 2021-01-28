@@ -78,7 +78,16 @@ session_start();
     <?php
     if (!empty($_POST)){
         $answers_count=count($questions);
+
 //        echo $_POST['question3'];
+        $answers=Array();
+        for ($i = 0; $i < $answers_count; $i++){
+            $answers[$i]['type']=$questions[$i]['type'];
+            is_array($_POST['question'.$i])?
+            $answers[$i]['answer']=implode(",", $_POST['question'.$i]):
+                $answers[$i]['answer']=$_POST['question'.$i];
+        }
+        $answers = json_encode($answers, JSON_UNESCAPED_UNICODE);
         echo $_POST['question3'];
         echo "Ответы учтены ";
         $client_ip=get_ip();
@@ -88,7 +97,8 @@ session_start();
         $client_date = $d.' '.$t;
         $client_id = bin2hex(random_bytes(5));
         $questions_query="INSERT INTO `sessions` (client_id, session_link, answers, client_ip, client_date) 
-                        VALUES ('$client_id', '$session[0]', '', '$client_ip', '$client_date')";
+                        VALUES ('$client_id', '$session[0]', '$answers', '$client_ip', '$client_date')";
+        echo $questions_query;
     }
     function get_ip()
     {
