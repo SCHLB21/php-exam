@@ -96,7 +96,7 @@ session_start();
         $t = date("H-i:s");
         $client_date = $d.' '.$t;
         $client_id = bin2hex(random_bytes(5));
-        $answers_query="INSERT INTO `sessions` (client_id, session_link, answers, client_ip, client_date) 
+        $answers_query="INSERT INTO `answers` (client_id, session_link, answers, client_ip, client_date) 
                         VALUES ('$client_id', '$session[0]', '$answers', '$client_ip', '$client_date')";
         $result = mysqli_query($link, $answers_query) or die("Ошибка " . mysqli_error($link));
     }
