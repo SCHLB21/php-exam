@@ -31,10 +31,11 @@ if(!empty($_POST)|| $_GET['status']){
             if($_POST['theme']){
                 echo '<h2>Тема сессии '.$_POST['theme'].'</h2>';
             }
-            for($i=0; $i<$_POST['count_questions']; $i++){
-                echo '
-                <label for="question'.$i.'">Вопрос</label>
-                <select name="theme'.$i.'" id="theme'.$i.'">
+            if(!$_POST['theme0']) {
+                for ($i = 0; $i < $_POST['count_questions']; $i++) {
+                    echo '
+                <label for="question' . $i . '">Вопрос №' . $i . '</label>
+                <select name="theme' . $i . '" id="theme' . $i . '">
                     <option value="number">Число</option>
                     <option value="positive_number">Положительно число</option>
                     <option value="small_text">строка</option>
@@ -44,6 +45,7 @@ if(!empty($_POST)|| $_GET['status']){
                 </select>
                 <br>
                 ';
+                }
             }
             //                <input type="text" id="question'.$i.'" required>
             if($_POST['count_questions'] && !$_POST['theme0']){
@@ -51,6 +53,12 @@ if(!empty($_POST)|| $_GET['status']){
                 print_r($_POST);
             }
             if($_POST['count_questions'] && $_POST['theme0']){
+                for ($i = 0; $i < $_POST['count_questions']; $i++){
+                   echo '<label for="theme">Вопрос№' . $i . ': </label>
+                            <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
+                   echo '<label for="theme">Ответ: </label>
+                            <input '.get_type($_POST['theme'.$i]).'>';
+                }
                 echo '
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
                 <input type="submit" value="Создать сессию">';
