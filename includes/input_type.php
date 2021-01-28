@@ -7,7 +7,7 @@ function get_type($a){
     }elseif ($a=='small_text'){
         return 'type="text" pattern="^[0-9a-zA-ZА-Яа-яЁё\s]{,30}" required';
     }elseif ($a=='big_text'){
-        return 'type="text" pattern="^[0-9a-zA-ZА-Яа-яЁё\s]{,30}" required';
+        return 'type="text" pattern="^[0-9a-zA-ZА-Яа-яЁё\s]{,255}" required';
     }elseif ($a=='checkbox'){
         return 'type="checkbox" required';
     }elseif ($a=='radio'){

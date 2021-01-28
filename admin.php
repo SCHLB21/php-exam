@@ -33,8 +33,8 @@ if(!empty($_POST)|| $_GET['status']){
             }
             for ($i = 0; $i < $_POST['count_questions']; $i++) {
                 echo '
-            <label for="question' . $i . '">Вопрос №' . $i . '</label>
-            <select name="theme' . $i . '" id="theme' . $i . '" onclick="radio('.$i.')" value="'.$_POST['theme'.$i].'">
+            <label for="theme' . $i . '">Вопрос №' . $i . '</label>
+            <select name="theme' . $i . '" id="theme' . $i . '" value="'.$_POST['theme'.$i].'">
                 <option value="number">Число</option>
                 <option value="positive_number">Положительно число</option>
                 <option value="small_text">строка</option>
@@ -48,7 +48,6 @@ if(!empty($_POST)|| $_GET['status']){
             //                <input type="text" id="question'.$i.'" required>
             if($_POST['count_questions'] && !$_POST['theme0']){
                 echo '<input type="submit" value="Выбрать типы вопросов">';
-                print_r($_POST);
             }
             if($_POST['count_questions'] && $_POST['theme0']){
                 for ($i = 0; $i < $_POST['count_questions']; $i++){
@@ -65,12 +64,22 @@ if(!empty($_POST)|| $_GET['status']){
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
                 <input type="submit" value="Создать сессию">';
             }
-            if($_POST['theme']){
+            if($_POST['question0']){
                 if(!$_POST['session_link']){
                 $session_link = bin2hex(random_bytes(10));
                 }else{
                     $session_link=$_POST['session_link'];
                 }
+                $questions=Array();
+                for ($i = 0; $i < $_POST['count_questions']; $i++){
+                    $questions[$i]['type']=$_POST['theme'.$i];
+                    $questions[$i]['question']=$_POST['question'.$i];
+                    if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
+                        $questions[$i]['options']=$_POST['options'.$i];
+                    }
+                    $questions[$i]['answer']=$_POST['answer'.$i];
+                }
+                print_r($questions);
 //                $newSession="CREATE TABLE `std_924.".".".$session_link."`";
             }
             echo '</form>';
