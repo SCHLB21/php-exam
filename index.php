@@ -23,7 +23,7 @@ session_start();
             <form action="/?link='.$_GET['link'].'" method="post">';
 
             if($session[1]=='active'){
-                $questions = json_decode(remove_utf8_bom($session[3]), JSON_OBJECT_AS_ARRAY);
+                $questions = json_decode($session[3], true);
                 print_r($questions);
             }else{
                 echo '<h2>Сессия закрыта</h2>';
