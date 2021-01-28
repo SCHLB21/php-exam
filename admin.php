@@ -22,7 +22,7 @@ if(!empty($_POST)){
      $_SESSION['password']=$_POST['password'];
 }
 if($_SESSION['password']=='12345'||$_GET['status']){
-    if($_POST['password']=='12345' || $_SESSION['password']=='12345'){
+    if($_POST['password']=='12345' || $_SESSION['password']=='12345'||$_GET['status']){
         echo 'Доступ получен </br>';
         echo '<a href="?status=add">Добавить новую сессию</a>';
         echo '<a href="admin.php?logout">Выйти</a><br>';
