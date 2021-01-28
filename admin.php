@@ -52,13 +52,13 @@ if(!empty($_POST)|| $_GET['status']){
             }
             if($_POST['count_questions'] && $_POST['theme0']){
                 for ($i = 0; $i < $_POST['count_questions']; $i++){
-                   echo '<label for="theme">Вопрос№' . $i . ': </label>
+                   echo '<label for="question'.$i.'">Вопрос№' . $i . ': </label>
                             <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
                    if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
-                       echo '<label for="theme" id="options'.$i.'">Варианты ответов: </label>
+                       echo '<label for="options'.$i.'">Варианты ответов: </label>
                             <input type="text" id="options'.$i.'" required>';
                    }
-                   echo '<label for="theme" id="answer'.$i.'">Ответ: </label>
+                   echo '<label for="answer'.$i.'">Ответ: </label>
                             <input type="text" id="answer'.$i.'" required><br><br>';
                 }
                 echo '
