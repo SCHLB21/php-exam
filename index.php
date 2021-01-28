@@ -98,6 +98,7 @@ session_start();
         $client_id = bin2hex(random_bytes(5));
         $answers_query="INSERT INTO `answers` (client_id, session_link, answers, client_ip, client_date) 
                         VALUES ('$client_id', '$session[0]', '$answers', '$client_ip', '$client_date')";
+        echo $answers_query;
         $result = mysqli_query($link, $answers_query) or die("Ошибка " . mysqli_error($link));
     }
     function get_ip()
