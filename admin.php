@@ -12,7 +12,9 @@
 require "includes/bd.php";
 require "includes/input_type.php";
 if(!empty($_POST)|| $_GET['status']){
-    if($_POST['password']=='12345' || $_GET['status']='add'){
+    if($_POST['password']=='12345' || $_SESSION['password']=='12345'){
+        $_SESSION['password']='12345';
+        print_r($_SESSION);
         echo 'Доступ получен </br>';
         echo '<a href="?status=add">Добавить новую сессию</a>';
         echo '<a href="/">Выйти</a><br>';
@@ -79,9 +81,7 @@ if(!empty($_POST)|| $_GET['status']){
                     }
                     $questions[$i]['answer']=$_POST['answer'.$i];
                 }
-                echo $session_link;
                 $questions = json_encode($questions, JSON_UNESCAPED_UNICODE);
-                print_r(json_decode($questions)) ;
                 $theme = $_POST['theme'];
                 $questions_query="INSERT INTO `sessions` (session_link, session_status, theme, questions) 
                         VALUES ('$session_link', 'active', '$theme', '$questions')";
