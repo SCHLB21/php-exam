@@ -34,7 +34,7 @@ if(!empty($_POST)|| $_GET['status']){
             for ($i = 0; $i < $_POST['count_questions']; $i++) {
                 echo '
             <label for="question' . $i . '">Вопрос №' . $i . '</label>
-            <select name="theme' . $i . '" id="theme' . $i . '" onclick="radio('.$i.')" value="'.$_POST['theme'.$i].'"'; if($_POST['theme0']) echo 'disabled';echo'>
+            <select name="theme' . $i . '" id="theme' . $i . '" onclick="radio('.$i.')" value="'.$_POST['theme'.$i].'">
                 <option value="number">Число</option>
                 <option value="positive_number">Положительно число</option>
                 <option value="small_text">строка</option>
@@ -54,8 +54,12 @@ if(!empty($_POST)|| $_GET['status']){
                 for ($i = 0; $i < $_POST['count_questions']; $i++){
                    echo '<label for="theme">Вопрос№' . $i . ': </label>
                             <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
-                   echo '<label for="theme">Ответ: </label>
-                            <input type="text" required><br>';
+                   if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
+                       echo '<label for="theme" id="options'.$i.'">Варианты ответов: </label>
+                            <input type="text" id="options'.$i.'" required><br>';
+                   }
+                   echo '<label for="theme" id="answer'.$i.'">Ответ: </label>
+                            <input type="text" id="answer'.$i.'" required><br>';
                 }
                 echo '
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
