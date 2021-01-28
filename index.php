@@ -72,7 +72,23 @@ session_start();
     if (!empty($_POST)){
 
         echo "Ответы учтены ";
-        echo "ip пользователя ".$_SERVER['REMOTE_ADDR'];
+        echo "ip пользователя ".get_ip();
+    }
+    function get_ip()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))
+        {
+            $ip=$_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+        {
+            $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else
+        {
+            $ip=$_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
     }
     mysqli_close($link);
     ?>
