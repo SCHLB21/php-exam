@@ -64,7 +64,7 @@ if($_SESSION['password']=='12345'||$_GET['status']){
                    echo '<label for="question'.$i.'">Вопрос№' . $i . ': </label>
                             <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
                    if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
-                       echo '<label for="options'.$i.'">Варианты ответов: </label>
+                       echo '<label for="options'.$i.'">Варианты ответов(через ","): </label>
                             <input type="text" id="options'.$i.'" name="options'.$i.'" required>';
                    }
                    echo '<label for="answer'.$i.'">Ответ: </label>

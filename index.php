@@ -70,9 +70,18 @@ session_start();
     </div>
     <?php
     if (!empty($_POST)){
-
+        $answers_count=count($questions);
+        echo $_POST['question3'];
+        echo $_POST['question1'];
         echo "Ответы учтены ";
-        echo "ip пользователя ".get_ip();
+        $client_ip=get_ip();
+        date_default_timezone_set('Europe/Moscow');
+        $d = date("d.m.Y");
+        $t = date("H-i:s");
+        $client_date = $d.' '.$t;
+        $client_id = bin2hex(random_bytes(5));
+        $questions_query="INSERT INTO `sessions` (client_id, session_link, answers, client_ip, client_date) 
+                        VALUES ('$client_id', '$session[0]', '', '$client_ip', '$client_date')";
     }
     function get_ip()
     {
