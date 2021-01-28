@@ -84,9 +84,9 @@ if($_SESSION['password']=='12345'||$_GET['status']){
                 for ($i = 0; $i < $_POST['count_questions']; $i++){
                     $questions[$i]['type']=$_POST['theme'.$i];
                     $questions[$i]['question']=$_POST['question'.$i];
-                    if(!$_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
+//                    if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
                         $questions[$i]['options']=$_POST['options'.$i];
-                    }
+//                    }
                     $questions[$i]['answer']=$_POST['answer'.$i];
                 }
                 $questions = json_encode($questions, JSON_UNESCAPED_UNICODE);
