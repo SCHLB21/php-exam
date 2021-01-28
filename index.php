@@ -71,7 +71,9 @@ session_start();
     <?php
     if (!empty($_POST)){
         $answers_count=count($questions);
-        echo $_POST['question3'];
+        echo $_POST['question30'];
+        echo $_POST['question31'];
+        echo $_POST['question32'];
         echo "Ответы учтены ";
         $client_ip=get_ip();
         date_default_timezone_set('Europe/Moscow');
