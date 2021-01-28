@@ -10,6 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Комков Дмитрий 191-322</title>
 </head>
+<!--"DELETE FROM `sessions` WHERE `sessions`.`session_link` = \'fca577f58e\'"-->
 <body>
     <div class="container">
         <a href="http://php-exam.std-924.ist.mospolytech.ru/?link=125243fa5f">Ссылка на сессию</a>
@@ -21,9 +22,14 @@ session_start();
             $session = mysqli_fetch_row($result);
             if($_SESSION['password']=='12345'){
                 echo "<a href='index.php?link=".$_GET['link']."&disable'>Закрыть сессию</a><br>";
-                echo "<a href='link=?delete'>Удалить сессию сессию</a><br>";
+                echo "<a href='index.php?link=".$_GET['link']."&delete'>Удалить сессию сессию</a><br>";
                 if(isset($_GET['disable'])){
                     $update_query="UPDATE `sessions` SET `session_status` = 'disabled' WHERE `session_link`='".$_GET['link']."'";
+                    $update = mysqli_query($link, $update_query) or die("Ошибка " . mysqli_error($link));
+                    if($session[1]=='active') header("Refresh:1");
+                }
+                if(isset($_GET['delete'])){
+                    $update_query="DELETE FROM `sessions` WHERE `session_link`='".$_GET['link']."'";
                     $update = mysqli_query($link, $update_query) or die("Ошибка " . mysqli_error($link));
                     if($session[1]=='active') header("Refresh:1");
                 }
