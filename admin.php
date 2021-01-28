@@ -19,10 +19,8 @@ if(!empty($_POST)|| $_GET['status']){
         if($_GET['status']=='add'){
             echo'
             <h1>Создание новой сессии</h1></br>
-            <form method="post">';
-            if(!$_POST['count_questions'])
-            echo
-            '<label for="theme">Выберете тему</label>
+            <form method="post">
+            <label for="theme">Выберете тему</label>
             <input type="text" id="theme" name="theme"></br>
             <label for="count_questions">Выберете количество вопросов</label>
             <input type="number" id="count_questions" name="count_questions"></br>
