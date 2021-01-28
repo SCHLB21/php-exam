@@ -11,11 +11,11 @@
 <?php
 require "includes/bd.php";
 require "includes/input_type.php";
-//if(!empty($_POST)){
-//     $_SESSION['password']=$_POST['password'];
-//    echo $_POST['password'];
-//}
-if(!empty($_POST)|| $_GET['status']|| $_SESSION['password']=='12345'){
+if(!empty($_POST)){
+     $_SESSION['password']=$_POST['password'];
+    echo $_POST['password'];
+}
+if($_SESSION['password']=='12345'){
     if($_POST['password']=='12345' || $_SESSION['password']=='12345'){
         echo 'Доступ получен </br>';
         echo '<a href="?status=add">Добавить новую сессию</a>';
