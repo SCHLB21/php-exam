@@ -12,6 +12,12 @@
 session_start();
 require "includes/bd.php";
 require "includes/input_type.php";
+if (isset($_GET['logout'])) // если был переход по ссылке Выход
+{
+    unset($_SESSION['password']); // удаляем информацию о пользовател
+    unset($_POST['password']);
+    exit(); // дальнейшая работа скрипта излишняя
+}
 if(!empty($_POST)){
      $_SESSION['password']=$_POST['password'];
     echo $_POST['password'];
@@ -20,7 +26,7 @@ if($_SESSION['password']=='12345'){
     if($_POST['password']=='12345' || $_SESSION['password']=='12345'){
         echo 'Доступ получен </br>';
         echo '<a href="?status=add">Добавить новую сессию</a>';
-        echo '<a href="/">Выйти</a><br>';
+        echo '<a href="admin.php?logout">Выйти</a><br>';
         if($_GET['status']=='add'){
             echo'
             <h1>Создание новой сессии</h1></br>
