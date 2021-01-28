@@ -31,21 +31,19 @@ if(!empty($_POST)|| $_GET['status']){
             if($_POST['theme']){
                 echo '<h2>Тема сессии '.$_POST['theme'].'</h2>';
             }
-            if(!$_POST['theme0']) {
-                for ($i = 0; $i < $_POST['count_questions']; $i++) {
-                    echo '
-                <label for="question' . $i . '">Вопрос №' . $i . '</label>
-                <select name="theme' . $i . '" id="theme' . $i . '" onclick="radio('.$i.')">
-                    <option value="number">Число</option>
-                    <option value="positive_number">Положительно число</option>
-                    <option value="small_text">строка</option>
-                    <option value="big_text">текст</option>
-                    <option value="radio">С единственным выбором</option>
-                    <option value="checkbox">С множественным выбором</option>
-                </select>
-                <br>
-                ';
-                }
+            for ($i = 0; $i < $_POST['count_questions']; $i++) {
+                echo '
+            <label for="question' . $i . '">Вопрос №' . $i+1 . '</label>
+            <select name="theme' . $i . '" id="theme' . $i . '" onclick="radio('.$i.')" value="'.$_POST['theme'.$i].'">
+                <option value="number">Число</option>
+                <option value="positive_number">Положительно число</option>
+                <option value="small_text">строка</option>
+                <option value="big_text">текст</option>
+                <option value="radio">С единственным выбором</option>
+                <option value="checkbox">С множественным выбором</option>
+            </select>
+            <br>
+            ';
             }
             //                <input type="text" id="question'.$i.'" required>
             if($_POST['count_questions'] && !$_POST['theme0']){
@@ -54,10 +52,10 @@ if(!empty($_POST)|| $_GET['status']){
             }
             if($_POST['count_questions'] && $_POST['theme0']){
                 for ($i = 0; $i < $_POST['count_questions']; $i++){
-                   echo '<label for="theme">Вопрос№' . $i . ': </label>
+                   echo '<label for="theme">Вопрос№' . $i+1 . ': </label>
                             <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
                    echo '<label for="theme">Ответ: </label>
-                            <input '.get_type($_POST['theme'.$i]).'><br>';
+                            <input type="text" required><br>';
                 }
                 echo '
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
