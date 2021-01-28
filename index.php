@@ -71,8 +71,8 @@ session_start();
     <?php
     if (!empty($_POST)){
 
-        echo "Ответы учтены";
-        echo "ip пользователя".$_SERVER['HTTP_CLIENT_IP'];
+        echo "Ответы учтены ";
+        echo "ip пользователя ".$_SERVER['HTTP_USER_AGENT'];
     }
     mysqli_close($link);
     ?>
