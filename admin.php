@@ -86,8 +86,8 @@ if(!empty($_POST)|| $_GET['status']){
                         VALUES ('$session_link', 'active', '$theme', '$questions')";
 //                $newSession="CREATE TABLE `std_924.".".".$session_link."`";
                 $result = mysqli_query($link, $questions_query) or die("Ошибка " . mysqli_error($link));
+                exit();
 //                echo $questions_query;
-                $_POST=Array();
             }
             echo '</form>';
         }
