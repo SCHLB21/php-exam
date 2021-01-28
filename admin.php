@@ -80,6 +80,7 @@ if(!empty($_POST)|| $_GET['status']){
                     $questions[$i]['answer']=$_POST['answer'.$i];
                 }
                 print_r($questions);
+                echo json_encode($questions);
 //                $newSession="CREATE TABLE `std_924.".".".$session_link."`";
             }
             echo '</form>';
