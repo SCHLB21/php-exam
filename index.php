@@ -15,13 +15,18 @@ session_start();
         <a href="http://php-exam.std-924.ist.mospolytech.ru/?link=125243fa5f">Ссылка на сессию</a>
         <a href="admin.php">Зайти от имени администратора</a>
         <?php
-        if($_SESSION['password']=='12345'){
-            echo "Privet";
-        }
         $get_link ="SELECT * FROM `sessions` WHERE `session_link`= '".$_GET['link']."'";
         $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
         if(mysqli_num_rows($result)!=0){
             $session = mysqli_fetch_row($result);
+            if($_SESSION['password']=='12345'){
+                echo "<a href='?disable'>Закрыть сессию</a><br>";
+                echo "<a href='?delete'>Удалить сессию сессию</a><br>";
+                if($_GET['disable']){
+                    $update_query="UPDATE `sessions` SET `session_status` = 'disabled' WHERE `session_link`='".$_GET['link']."'";
+                    $update = mysqli_query($link, $update_query) or die("Ошибка " . mysqli_error($link));
+                }
+            }
             echo '<h1>Опрос на тему "'.$session[2].'"</h1>
             <form action="/?link='.$_GET['link'].'" method="post">';
 
