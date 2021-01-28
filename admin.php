@@ -55,10 +55,10 @@ if(!empty($_POST)|| $_GET['status']){
                             <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
                    if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
                        echo '<label for="options'.$i.'">Варианты ответов: </label>
-                            <input type="text" id="options'.$i.'" required>';
+                            <input type="text" id="options'.$i.'" name="options'.$i.'" required>';
                    }
                    echo '<label for="answer'.$i.'">Ответ: </label>
-                            <input type="text" id="answer'.$i.'" required><br><br>';
+                            <input type="text" id="answer'.$i.'" name="answer'.$i.'" required><br><br>';
                 }
                 echo '
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
@@ -86,7 +86,7 @@ if(!empty($_POST)|| $_GET['status']){
                         VALUES ('$session_link', 'active', '$theme', '$questions')";
 //                $newSession="CREATE TABLE `std_924.".".".$session_link."`";
                 $result = mysqli_query($link, $questions_query) or die("Ошибка " . mysqli_error($link));
-                exit();
+                unset($_POST);
 //                echo $questions_query;
             }
             echo '</form>';
