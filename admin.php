@@ -90,6 +90,7 @@ if($_SESSION['password']=='12345'){
                     $questions[$i]['answer']=$_POST['answer'.$i];
                 }
                 $questions = json_encode($questions, JSON_UNESCAPED_UNICODE);
+                print_r(json_decode($questions));
                 $theme = $_POST['theme'];
                 $questions_query="INSERT INTO `sessions` (session_link, session_status, theme, questions) 
                         VALUES ('$session_link', 'active', '$theme', '$questions')";
