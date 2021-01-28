@@ -19,8 +19,12 @@ session_start();
         $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
         if(mysqli_num_rows($result)!=0){
             echo '<h1>Опрос на тему "'.mysqli_fetch_row($result)[2].'"</h1>
-            <form action="/?post='.$_GET['link'].'" method="post">';
-            
+            <form action="/?link='.$_GET['link'].'" method="post">';
+            if(mysqli_fetch_row($result)[1]=='active'){
+
+            }else{
+                echo '<h2>Сессия закрыта</h2>';
+            }
 //            $session = mysqli_query($link, $get_session) or die("Ошибка " . mysqli_error($link));
 //            $s_row=mysqli_fetch_assoc($session);
 
