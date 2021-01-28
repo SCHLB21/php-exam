@@ -23,12 +23,15 @@ if(!empty($_POST)|| $_GET['status']){
             if(!$_POST['count_questions'])
             echo
             '<label for="theme">Выберете тему</label>
-            <input type="text" id="theme"></br>
+            <input type="text" id="theme" name="theme"></br>
             <label for="count_questions">Выберете количество вопросов</label>
             <input type="number" id="count_questions" name="count_questions"></br>
             ';
             if(!$_POST['count_questions']){
                 echo '<input type="submit" value="Выбрать">';
+            }
+            if($_POST['theme']){
+                echo '<h2>Тема сессии '.$_POST['theme'].'</h2>';
             }
             for($i=0; $i<$_POST['count_questions']; $i++){
                 echo '
