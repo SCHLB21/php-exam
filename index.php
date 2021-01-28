@@ -1,6 +1,7 @@
 <?php
 require "includes/bd.php";
 require "includes/input_type.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
