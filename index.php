@@ -70,9 +70,9 @@ session_start();
     </div>
     <?php
     if (!empty($_POST)){
-        
+
         echo "Ответы учтены";
-        echo "ip пользователя".$_SERVER['REMOTE_ADDR'];
+        echo "ip пользователя".$_SERVER['HTTP_CLIENT_IP'];
     }
     mysqli_close($link);
     ?>
