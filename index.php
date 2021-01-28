@@ -45,21 +45,12 @@ session_start();
                         echo '<label for="question'.$key.'">'.$question['question'].'</label><br>';
                         echo '<input id="question'.$key.'" name="question'.$key.'" '.get_type($question['type']).'>'.$question[$question].'</input><br><br>';
                     }else{
-                        if($question['type']!='radio') {
-                            echo '<p>' . $question['question'] . '</p>';
-                            $radio = explode(',', $question['options']);
+                        echo '<p>'.$question['question'].'</p>';
+                        $radio=explode(',',$question['options']);
 //                        print_r($radio);
-                            foreach ($radio as $num => $value) {
-                                echo '<input ' . get_type($question['type']) . ' id="question' . $key . $num . '" name="question' . $key . '" value="' . $value . '">';
-                                echo '<label for="question' . $key . $num . '">' . $value . '</label><br><br>';
-                            }
-                        }else{
-                            echo '<p>' . $question['question'] . '</p>';
-                            $radio = explode(',', $question['options']);
-//                        print_r($radio);
-                            foreach ($radio as $num => $value) {
-                                echo '<input ' . get_type($question['type']) . ' id="question' . $key . $num . '" name="question' . $key . '" value="' . $value . '">';
-                                echo '<label for="question' . $key . $num . '">' . $value . '</label><br><br>';
+                        foreach ($radio as $num =>$value){
+                            echo '<input '.get_type($question['type']).' id="question'.$key.$num.'" name="question'.$key.'" value="'.$value.'">';
+                            echo '<label for="question'.$key.$num.'">'.$value.'</label><br><br>';
                         }
                     }
                 }
@@ -80,8 +71,8 @@ session_start();
     <?php
     if (!empty($_POST)){
         $answers_count=count($questions);
-        echo $_POST['question3'];
-        echo $_POST['question1'];
+//        echo $_POST['question3'];
+//        echo $_POST['question1'];
         echo "Ответы учтены ";
         $client_ip=get_ip();
         date_default_timezone_set('Europe/Moscow');
