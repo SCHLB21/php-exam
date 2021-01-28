@@ -23,6 +23,7 @@ session_start();
             <form action="/?link='.$_GET['link'].'" method="post">';
 
             if($session[1]=='active'){
+                $questions= utf8_encode($session[3]);
                 $questions = json_decode($session[3], true);
                 print_r($questions);
             }else{
