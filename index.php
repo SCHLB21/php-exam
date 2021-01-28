@@ -33,10 +33,10 @@ session_start();
                     }else{
                         echo '<p>'.$question['question'].'</p>';
                         $radio=explode(',',$question['options']);
-                        print_r($radio);
+//                        print_r($radio);
                         foreach ($radio as $num =>$value){
-                            echo '<input '.get_type($question['type']).' id="question'.$key.$num.'" name="question'.$key.'" value="'.$radio.'">';
-                            echo '<label for="question'.$key.$num.'">'.$radio.'</label><br><br>';
+                            echo '<input '.get_type($question['type']).' id="question'.$key.$num.'" name="question'.$key.'" value="'.$value.'">';
+                            echo '<label for="question'.$key.$num.'">'.$value.'</label><br><br>';
                         }
                     }
                 }
