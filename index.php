@@ -31,7 +31,7 @@ session_start();
                 if(isset($_GET['delete'])){
                     $update_query="DELETE FROM `sessions` WHERE `session_link`='".$_GET['link']."'";
                     $update = mysqli_query($link, $update_query) or die("Ошибка " . mysqli_error($link));
-                    if($session[1]=='active') header("Refresh:1");
+                    header("Refresh:0");
                 }
             }
             echo '<h1>Опрос на тему "'.$session[2].'"</h1>
