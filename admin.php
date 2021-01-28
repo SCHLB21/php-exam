@@ -81,8 +81,7 @@ if(!empty($_POST)|| $_GET['status']){
                 }
                 echo $session_link;
                 $questions = json_encode($questions, JSON_UNESCAPED_UNICODE);
-                $questions = utf8ize($questions);
-                echo $questions;
+                echo json_decode($questions);
                 $theme = $_POST['theme'];
                 $questions_query="INSERT INTO `sessions` (session_link, session_status, theme, questions) 
                         VALUES ('$session_link', 'active', '$theme', '$questions')";
@@ -102,20 +101,6 @@ if(!empty($_POST)|| $_GET['status']){
     <input type="password" name="password">
     <input type="submit">
     </form>';
-}
-function utf8ize($data) {
-    if (is_array($data))
-        foreach ($data as $key => $value)
-            $data[$key] = $this->utf8ize($value);
-
-    else if(is_object($data))
-        foreach ($data as $key => $value)
-            $data->$key = $this->utf8ize($value);
-
-    else
-        return utf8_encode($data);
-
-    return $data;
 }
 ?>
 <script src="main.js"></script>
