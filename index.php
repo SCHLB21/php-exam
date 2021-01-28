@@ -70,18 +70,7 @@ session_start();
     </div>
     <?php
     if (!empty($_POST)){
-        $table_name= $_GET['post'].'answers';
-        $elements="";
-        foreach ($_POST AS $element){
-            $elements.="'".$element."',";
-        }
-        $elements = mb_substr($elements, 0, -1);
-        $elements = mb_substr($elements, 0, -1);
-        $elements.="'";
-//        print_r($_POST);
-
-        $post_query ="INSERT INTO ".$table_name." VALUES(".$elements.")";
-        $add_answer = mysqli_query($link, $post_query) or die("Ошибка " . mysqli_error($link));
+        
         echo "Ответы учтены";
         echo "ip пользователя".$_SERVER['REMOTE_ADDR'];
     }
