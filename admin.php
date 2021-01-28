@@ -11,7 +11,7 @@
 <?php
 require "includes/bd.php";
 require "includes/input_type.php";
-if(!empty($_POST)|| $_GET['status']){
+if(!empty($_POST)|| $_GET['status']|| $_SESSION['password']=='12345'){
     if($_POST['password']=='12345' || $_SESSION['password']=='12345'){
         $_SESSION['password']='12345';
         print_r($_SESSION);
