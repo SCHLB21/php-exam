@@ -1,6 +1,6 @@
 function radio(id){
     let element = document.getElementById('theme'+id);
-    console.log(element)
+    console.log(element.value)
     if(element.value=='radio'){
         element.innerHTML=element+'<input type="number">';
     }
