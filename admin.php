@@ -36,7 +36,6 @@ if(!empty($_POST)|| $_GET['status']){
             for($i=0; $i<$_POST['count_questions']; $i++){
                 echo '
                 <label for="question'.$i.'">Вопрос</label>
-//                <input type="text" id="question'.$i.'" required>
                 <select name="theme'.$i.'" id="theme'.$i.'">
                     <option value="number">Число</option>
                     <option value="positive_number">Положительно число</option>
@@ -48,6 +47,7 @@ if(!empty($_POST)|| $_GET['status']){
                 <br>
                 ';
             }
+            //                <input type="text" id="question'.$i.'" required>
             if($_POST['count_questions'] && !$_POST['theme0']){
                 echo 'Кто я?';
             }
