@@ -33,7 +33,7 @@ if(!empty($_POST)|| $_GET['status']){
             }
             for ($i = 0; $i < $_POST['count_questions']; $i++) {
                 echo '
-            <label for="question' . $i . '">Вопрос №' . $i+1 . '</label>
+            <label for="question' . $i . '">Вопрос №' . $i . '</label>
             <select name="theme' . $i . '" id="theme' . $i . '" onclick="radio('.$i.')" value="'.$_POST['theme'.$i].'">
                 <option value="number">Число</option>
                 <option value="positive_number">Положительно число</option>
@@ -52,7 +52,7 @@ if(!empty($_POST)|| $_GET['status']){
             }
             if($_POST['count_questions'] && $_POST['theme0']){
                 for ($i = 0; $i < $_POST['count_questions']; $i++){
-                   echo '<label for="theme">Вопрос№' . $i+1 . ': </label>
+                   echo '<label for="theme">Вопрос№' . $i . ': </label>
                             <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
                    echo '<label for="theme">Ответ: </label>
                             <input type="text" required><br>';
