@@ -25,7 +25,7 @@ session_start();
                 if(isset($_GET['disable'])){
                     $update_query="UPDATE `sessions` SET `session_status` = 'disabled' WHERE `session_link`='".$_GET['link']."'";
                     $update = mysqli_query($link, $update_query) or die("Ошибка " . mysqli_error($link));
-                    header("Refresh:1");
+                    if($session[1]=='active') header("Refresh:1");
                 }
             }
             echo '<h1>Опрос на тему "'.$session[2].'"</h1>
