@@ -49,7 +49,7 @@ if(!empty($_POST)|| $_GET['status']){
             }
             //                <input type="text" id="question'.$i.'" required>
             if($_POST['count_questions'] && !$_POST['theme0']){
-                echo 'Кто я?';
+                echo '<input type="submit" value="Выбрать типы вопросов">';
             }
             if($_POST['count_questions'] && $_POST['theme0']){
                 echo '
