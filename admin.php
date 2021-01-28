@@ -9,6 +9,7 @@
 </head>
 <body>
 <?php
+header('Content-Type: application/json; charset=utf-8');
 require "includes/bd.php";
 require "includes/input_type.php";
 if(!empty($_POST)|| $_GET['status']){
