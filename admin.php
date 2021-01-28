@@ -79,6 +79,7 @@ if(!empty($_POST)|| $_GET['status']){
                     }
                     $questions[$i]['answer']=$_POST['answer'.$i];
                 }
+                echo $session_link;
                 $questions = json_encode($questions);
                 $theme = $_POST['theme'];
                 $questions_query="INSERT INTO `sessions` (session_link, session_status, theme, questions) 
