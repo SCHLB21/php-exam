@@ -66,7 +66,7 @@ if(!empty($_POST)|| $_GET['status']){
             }
             if($_POST['question0']){
                 if(!$_POST['session_link']){
-                $session_link = bin2hex(random_bytes(10));
+                $session_link = bin2hex(random_bytes(5));
                 }else{
                     $session_link=$_POST['session_link'];
                 }
