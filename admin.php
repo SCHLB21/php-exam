@@ -21,9 +21,9 @@ if(!empty($_POST)|| $_GET['status']){
             <h1>Создание новой сессии</h1></br>
             <form method="post">
             <label for="theme">Выберете тему</label>
-            <input type="text" id="theme" name="theme"></br>
+            <input type="text" id="theme" name="theme" value="'.$_POST['theme'].'"></br>
             <label for="count_questions">Выберете количество вопросов</label>
-            <input type="number" id="count_questions" name="count_questions"></br>
+            <input type="number" id="count_questions" name="count_questions" value="'.$_POST['count_questions'].'"></br>
             ';
             if(!$_POST['count_questions']){
                 echo '<input type="submit" value="Выбрать">';
