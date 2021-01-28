@@ -57,7 +57,7 @@ if(!empty($_POST)|| $_GET['status']){
                    echo '<label for="theme">Вопрос№' . $i . ': </label>
                             <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
                    echo '<label for="theme">Ответ: </label>
-                            <input '.get_type($_POST['theme'.$i]).'>';
+                            <input '.get_type($_POST['theme'.$i]).'><br>';
                 }
                 echo '
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
