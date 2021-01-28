@@ -24,6 +24,7 @@ session_start();
 
             }else{
                 echo '<h2>Сессия закрыта</h2>';
+                echo mysqli_fetch_row($result)[1];
             }
 //            $session = mysqli_query($link, $get_session) or die("Ошибка " . mysqli_error($link));
 //            $s_row=mysqli_fetch_assoc($session);
