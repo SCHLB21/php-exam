@@ -26,6 +26,23 @@ session_start();
                 $questions= utf8_encode($session[3]);
                 $questions = json_decode($session[3], true);
                 print_r($questions);
+                foreach ($questions as $key =>$question){
+                    if($question['type']!='checkbox'&&$question['type']!='radio'){
+                        echo '<label for="question'.$key.'">'.$question['question'].'</label><br>';
+                        echo '<input id="question'.$key.'" name="question'.$key.'" '.get_type($question['type']).'>'.$question[$question].'</input><br><br>';
+                    }else{
+                        if($question['type']=='radio'|| $question['type']=='checkbox'){
+                            echo '<p>'.$question['question'].'</p>';
+                            $radio=explode(',',$question['options']);
+                            foreach ($radio as $num =>$value){
+                                echo '<input '.get_type($question['type']).' id="question'.$key.$num.'" name="question'.$key.'" value="'.$radio.'">';
+                                echo '<label for="question'.$key.$num.'">'.$radio.'</label><br><br>';
+                            }
+                        }else{
+
+                        }
+                    }
+                }
             }else{
                 echo '<h2>Сессия закрыта</h2>';
 
