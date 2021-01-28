@@ -50,6 +50,7 @@ if(!empty($_POST)|| $_GET['status']){
             //                <input type="text" id="question'.$i.'" required>
             if($_POST['count_questions'] && !$_POST['theme0']){
                 echo '<input type="submit" value="Выбрать типы вопросов">';
+                print_r($_POST);
             }
             if($_POST['count_questions'] && $_POST['theme0']){
                 echo '
