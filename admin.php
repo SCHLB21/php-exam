@@ -40,7 +40,7 @@ if(!empty($_POST)|| $_GET['status']){
                     <option value="positive_number">Положительно число</option>
                     <option value="small_text">строка</option>
                     <option value="big_text">текст</option>
-                    <option value="radio">С единственным выбором</option>
+                    <option value="radio" onclick="radio()">С единственным выбором</option>
                     <option value="checkbox">С множественным выбором</option>
                 </select>
                 <br>

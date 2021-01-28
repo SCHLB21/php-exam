@@ -1,1 +1,3 @@
-alert("Привет")
+function radio(){
+    alert("Привет")
+}
