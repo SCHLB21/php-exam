@@ -12,7 +12,7 @@
 require "includes/bd.php";
 require "includes/input_type.php";
 if(!empty($_POST)){
-    $_POST['password'] = $_SESSION['password'];
+     $_SESSION['password']=$_POST['password'];
     echo $_POST['password'];
 }
 if(!empty($_POST)|| $_GET['status']|| $_SESSION['password']=='12345'){
