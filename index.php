@@ -19,7 +19,7 @@ session_start();
         $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
         if(mysqli_num_rows($result)!=0){
             $session = mysqli_fetch_row($result);
-            echo '<h1>Опрос на тему "'.session[2].'"</h1>
+            echo '<h1>Опрос на тему "'.$session[2].'"</h1>
             <form action="/?link='.$_GET['link'].'" method="post">';
 
             if($session[1]=='active'){
