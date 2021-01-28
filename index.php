@@ -15,6 +15,9 @@ session_start();
         <a href="http://php-exam.std-924.ist.mospolytech.ru/?link=125243fa5f">Ссылка на сессию</a>
         <a href="admin.php">Зайти от имени администратора</a>
         <?php
+        if($_SESSION['password']=='12345'){
+            echo "Privet";
+        }
         $get_link ="SELECT * FROM `sessions` WHERE `session_link`= '".$_GET['link']."'";
         $result = mysqli_query($link, $get_link) or die("Ошибка " . mysqli_error($link));
         if(mysqli_num_rows($result)!=0){
