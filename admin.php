@@ -45,12 +45,12 @@ if($_SESSION['password']=='12345'||$_GET['status']){
                 echo '
             <label for="theme' . $i . '">Вопрос №' . $i . '</label>
             <select name="theme' . $i . '" id="theme' . $i . '" value="'.$_POST['theme'.$i].'">
-                <option value="number">Число</option>
-                <option value="positive_number">Положительно число</option>
-                <option value="small_text">строка</option>
-                <option value="big_text">текст</option>
-                <option value="radio">С единственным выбором</option>
-                <option value="checkbox">С множественным выбором</option>
+                <option value="number"'; if($_POST['theme'.$i]=='number')echo 'selected';echo '>Число</option>
+                <option value="positive_number"'; if($_POST['theme'.$i]=='positive_number')echo 'selected';echo '>Положительно число</option>
+                <option value="small_text"'; if($_POST['theme'.$i]=='small_text')echo 'selected';echo '>строка</option>
+                <option value="big_text"'; if($_POST['theme'.$i]=='big_text')echo 'selected';echo '>текст</option>
+                <option value="radio"'; if($_POST['theme'.$i]=='radio')echo 'selected';echo '>С единственным выбором</option>
+                <option value="checkbox"'; if($_POST['theme'.$i]=='checkbox')echo 'selected';echo '>С множественным выбором</option>
             </select>
             <br><br>
             ';
