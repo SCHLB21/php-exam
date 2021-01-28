@@ -84,5 +84,6 @@ if(!empty($_POST)|| $_GET['status']){
     </form>';
 }
 ?>
+<script src="main.js"></script>
 </body>
 </html>
