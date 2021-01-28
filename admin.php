@@ -84,6 +84,7 @@ if(!empty($_POST)|| $_GET['status']){
                 $questions_query="INSERT INTO `std_924.sessions` (session_link, session_status, theme, questions) 
                         VALUES ($session_link, 'active', $theme, $questions)";
 //                $newSession="CREATE TABLE `std_924.".".".$session_link."`";
+                echo $questions_query;
             }
             echo '</form>';
         }
