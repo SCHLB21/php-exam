@@ -1,7 +1,7 @@
 function radio(id){
     let element = document.getElementById('theme'+id);
-    console.log(element.value)
+    console.log(element)
     if(element.value=='radio'){
-        document.write('ривет')
+        // element.innerHTML(eleme)
     }
 }
