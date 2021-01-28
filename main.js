@@ -2,6 +2,6 @@ function radio(id){
     let element = document.getElementById('theme'+id);
     console.log(element.value)
     if(element.value=='radio'){
-        element.innerHTML+='<input type="number">';
+        element.insertAdjacentHTML("afterEnd", "<input type='number'>");
     }
 }
