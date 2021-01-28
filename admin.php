@@ -23,7 +23,7 @@ if(!empty($_POST)|| $_GET['status']){
             <label for="theme">Выберете тему</label>
             <input type="text" id="theme" name="theme" value="'.$_POST['theme'].'"></br>
             <label for="count_questions">Выберете количество вопросов</label>
-            <input type="number" id="count_questions" name="count_questions" value="'.$_POST['count_questions'].'"></br><br>
+            <input type="number" id="count_questions" name="count_questions" value="'.$_POST['count_questions'].'"></br>
             ';
             if(!$_POST['count_questions']){
                 echo '<input type="submit" value="Выбрать">';
@@ -42,7 +42,7 @@ if(!empty($_POST)|| $_GET['status']){
                 <option value="radio">С единственным выбором</option>
                 <option value="checkbox">С множественным выбором</option>
             </select>
-            <br>
+            <br><br>
             ';
             }
             //                <input type="text" id="question'.$i.'" required>
