@@ -9,7 +9,6 @@
 </head>
 <body>
 <?php
-header('Content-Type: application/json; charset=utf-8');
 require "includes/bd.php";
 require "includes/input_type.php";
 if(!empty($_POST)|| $_GET['status']){
@@ -74,14 +73,15 @@ if(!empty($_POST)|| $_GET['status']){
                 $questions=Array();
                 for ($i = 0; $i < $_POST['count_questions']; $i++){
                     $questions[$i]['type']=$_POST['theme'.$i];
-                    $questions[$i]['question']=toJsonStr($_POST['question'.$i]);
+                    $questions[$i]['question']=$_POST['question'.$i];
                     if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
-                        $questions[$i]['options']=toJsonStr($_POST['options'.$i]);
+                        $questions[$i]['options']=$_POST['options'.$i];
                     }
-                    $questions[$i]['answer']=toJsonStr($_POST['answer'.$i]);
+                    $questions[$i]['answer']=$_POST['answer'.$i];
                 }
                 echo $session_link;
                 $questions = json_encode($questions, JSON_UNESCAPED_UNICODE);
+                $questions = utf8ize($questions);
                 echo $questions;
                 $theme = $_POST['theme'];
                 $questions_query="INSERT INTO `sessions` (session_link, session_status, theme, questions) 
@@ -103,9 +103,19 @@ if(!empty($_POST)|| $_GET['status']){
     <input type="submit">
     </form>';
 }
-function toJsonStr($str){
-    $str = preg_replace_callback('/\\\\u([a-f0-9]{4})/i', create_function('$m', 'return chr(hexdec($m[1])-1072+224);'), $str);
-    return iconv('cp1251', 'utf-8', $str);
+function utf8ize($data) {
+    if (is_array($data))
+        foreach ($data as $key => $value)
+            $data[$key] = $this->utf8ize($value);
+
+    else if(is_object($data))
+        foreach ($data as $key => $value)
+            $data->$key = $this->utf8ize($value);
+
+    else
+        return utf8_encode($data);
+
+    return $data;
 }
 ?>
 <script src="main.js"></script>
