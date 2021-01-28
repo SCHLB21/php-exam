@@ -10,6 +10,8 @@
 <body>
 <?php
 require "includes/bd.php";
+require "includes/input_type.php";
+echo get_type('number');
 if(!empty($_POST)|| $_GET['status']){
     if($_POST['password']=='12345' || $_GET['status']='add'){
         echo 'Доступ получен </br>';
@@ -29,7 +31,7 @@ if(!empty($_POST)|| $_GET['status']){
             }
             for($i=0; $i<$_POST['count_questions']; $i++){
                 echo '
-                <label for="question'.$i.'">Вопрос </label>
+                <label for="question'.$i.'">Вопрос</label>
                 <input type="text" id="question'.$i.'" required>
                 <select name="theme'.$i.'" id="theme'.$i.'">
                     <option value="number">Число</option>
@@ -47,7 +49,7 @@ if(!empty($_POST)|| $_GET['status']){
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
                 <input type="submit" value="Создать сессию">';
             }
-            if($_POST['theme0']){
+            if($_POST['theme']){
                 if(!$_POST['session_link']){
                 $session_link = bin2hex(random_bytes(10));
                 }else{
