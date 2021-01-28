@@ -35,12 +35,12 @@ if(!empty($_POST)|| $_GET['status']){
                 for ($i = 0; $i < $_POST['count_questions']; $i++) {
                     echo '
                 <label for="question' . $i . '">Вопрос №' . $i . '</label>
-                <select name="theme' . $i . '" id="theme' . $i . '">
+                <select name="theme' . $i . '" id="theme' . $i . '" onclick="radio()">
                     <option value="number">Число</option>
                     <option value="positive_number">Положительно число</option>
                     <option value="small_text">строка</option>
                     <option value="big_text">текст</option>
-                    <option value="radio" onclick="radio()">С единственным выбором</option>
+                    <option value="radio">С единственным выбором</option>
                     <option value="checkbox">С множественным выбором</option>
                 </select>
                 <br>
