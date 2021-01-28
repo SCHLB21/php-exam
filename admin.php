@@ -20,7 +20,6 @@ if (isset($_GET['logout'])) // если был переход по ссылке 
 }
 if(!empty($_POST)){
      $_SESSION['password']=$_POST['password'];
-    echo $_POST['password'];
 }
 if($_SESSION['password']=='12345'){
     if($_POST['password']=='12345' || $_SESSION['password']=='12345'){
