@@ -22,7 +22,8 @@ session_start();
             if($_SESSION['password']=='12345'){
                 echo "<a href='index.php?link=".$_GET['link']."&disable'>Закрыть сессию</a><br>";
                 echo "<a href='link=?delete'>Удалить сессию сессию</a><br>";
-                if($_GET['disable']){
+                if(isset($_GET['disable'])){
+                    echo 'rnj z';
                     $update_query="UPDATE `sessions` SET `session_status` = 'disabled' WHERE `session_link`='".$_GET['link']."'";
                     $update = mysqli_query($link, $update_query) or die("Ошибка " . mysqli_error($link));
                 }
