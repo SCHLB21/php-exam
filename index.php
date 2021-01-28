@@ -25,7 +25,6 @@ session_start();
             if($session[1]=='active'){
                 $questions= utf8_encode($session[3]);
                 $questions = json_decode($session[3], true);
-                print_r($questions);
                 foreach ($questions as $key =>$question){
                     if($question['type']!='checkbox'&&$question['type']!='radio'){
                         echo '<label for="question'.$key.'">'.$question['question'].'</label><br>';
