@@ -82,7 +82,7 @@ if (!empty($_POST)) {
     }
     $check_answers=$answers;
     $answers = json_encode($answers, JSON_UNESCAPED_UNICODE);
-    echo $_POST['question3'];
+//    echo $_POST['question3'];
     echo "Ответы учтены ";
     print_r($check_answers);
     $client_ip = get_ip();
