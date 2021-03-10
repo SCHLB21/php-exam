@@ -18,80 +18,92 @@ if (isset($_GET['logout'])) // если был переход по ссылке 
     unset($_POST['password']);
     exit(); // дальнейшая работа скрипта излишняя
 }
-if(!empty($_POST)){
-     $_SESSION['password']=$_POST['password'];
+if (!empty($_POST)) {
+    $_SESSION['password'] = $_POST['password'];
 }
-if($_SESSION['password']=='12345'||$_GET['status']){
-    if($_POST['password']=='12345' || $_SESSION['password']=='12345'||$_GET['status']){
+if ($_SESSION['password'] == '12345' || $_GET['status']) {
+    if ($_POST['password'] == '12345' || $_SESSION['password'] == '12345' || $_GET['status']) {
         echo 'Доступ получен </br>';
         echo '<a href="?status=add">Добавить новую сессию</a>';
         echo '<a href="admin.php?logout">Выйти</a><br>';
-        if($_GET['status']=='add'){
-            echo'
+        if ($_GET['status'] == 'add') {
+            echo '
             <h1>Создание новой сессии</h1></br>
             <form method="post">
             <label for="theme">Выберете тему</label>
-            <input type="text" id="theme" name="theme" value="'.$_POST['theme'].'"></br>
+            <input type="text" id="theme" name="theme" value="' . $_POST['theme'] . '"></br>
             <label for="count_questions">Выберете количество вопросов</label>
-            <input type="number" id="count_questions" name="count_questions" value="'.$_POST['count_questions'].'"></br>
+            <input type="number" id="count_questions" name="count_questions" value="' . $_POST['count_questions'] . '"></br>
             ';
-            if(!$_POST['count_questions']){
+            if (!$_POST['count_questions']) {
                 echo '<input type="submit" value="Выбрать">';
             }
-            if($_POST['theme']){
-                echo '<h2>Тема сессии '.$_POST['theme'].'</h2>';
+            if ($_POST['theme']) {
+                echo '<h2>Тема сессии ' . $_POST['theme'] . '</h2>';
             }
             for ($i = 0; $i < $_POST['count_questions']; $i++) {
                 echo '
             <label for="theme' . $i . '">Вопрос №' . $i . '</label>
-            <select name="theme' . $i . '" id="theme' . $i . '" value="'.$_POST['theme'.$i].'">
-                <option value="number"'; if($_POST['theme'.$i]=='number')echo 'selected';echo '>Число</option>
-                <option value="positive_number"'; if($_POST['theme'.$i]=='positive_number')echo 'selected';echo '>Положительно число</option>
-                <option value="small_text"'; if($_POST['theme'.$i]=='small_text')echo 'selected';echo '>строка</option>
-                <option value="big_text"'; if($_POST['theme'.$i]=='big_text')echo 'selected';echo '>текст</option>
-                <option value="radio"'; if($_POST['theme'.$i]=='radio')echo 'selected';echo '>С единственным выбором</option>
-                <option value="checkbox"'; if($_POST['theme'.$i]=='checkbox')echo 'selected';echo '>С множественным выбором</option>
+            <select name="theme' . $i . '" id="theme' . $i . '" value="' . $_POST['theme' . $i] . '">
+                <option value="number"';
+                if ($_POST['theme' . $i] == 'number') echo 'selected';
+                echo '>Число</option>
+                <option value="positive_number"';
+                if ($_POST['theme' . $i] == 'positive_number') echo 'selected';
+                echo '>Положительно число</option>
+                <option value="small_text"';
+                if ($_POST['theme' . $i] == 'small_text') echo 'selected';
+                echo '>строка</option>
+                <option value="big_text"';
+                if ($_POST['theme' . $i] == 'big_text') echo 'selected';
+                echo '>текст</option>
+                <option value="radio"';
+                if ($_POST['theme' . $i] == 'radio') echo 'selected';
+                echo '>С единственным выбором</option>
+                <option value="checkbox"';
+                if ($_POST['theme' . $i] == 'checkbox') echo 'selected';
+                echo '>С множественным выбором</option>
             </select>
             <br><br>
             ';
             }
             //                <input type="text" id="question'.$i.'" required>
-            if($_POST['count_questions'] && !$_POST['theme0']){
+            if ($_POST['count_questions'] && !$_POST['theme0']) {
                 echo '<input type="submit" value="Выбрать типы вопросов">';
             }
-            if($_POST['count_questions'] && $_POST['theme0']){
-                for ($i = 0; $i < $_POST['count_questions']; $i++){
-                   echo '<label for="question'.$i.'">Вопрос№' . $i . ': </label>
-                            <input type="text" id="question'.$i.'"  name="question'.$i.'"required>';
-                   if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
-                       echo '<label for="options'.$i.'">Варианты ответов(через ","): </label>
-                            <input type="text" id="options'.$i.'" name="options'.$i.'" required>';
-                   }
-                   echo '<label for="answer'.$i.'">Ответ: </label>
-                            <input type="text" id="answer'.$i.'" name="answer'.$i.'" required><br><br>';
+            if ($_POST['count_questions'] && $_POST['theme0']) {
+                for ($i = 0; $i < $_POST['count_questions']; $i++) {
+                    echo '<label for="question' . $i . '">Вопрос№' . $i . ': </label>
+                            <input type="text" id="question' . $i . '"  name="question' . $i . '"required>';
+                    if ($_POST['theme' . $i] == 'radio' || $_POST['theme' . $i] == 'checkbox') {
+                        echo '<label for="options' . $i . '">Варианты ответов(через ","): </label>
+                            <input type="text" id="options' . $i . '" name="options' . $i . '" required>';
+                    }
+                    echo '<label for="answer' . $i . '">Ответ: </label>
+                            <input type="text" id="answer' . $i . '" name="answer' . $i . '" required><br><br>';
                 }
                 echo '
                 <input name="session_link" id="session_link" type="text"><label for="session_link">Ссылка на сессию</label>
                 <input type="submit" value="Создать сессию">';
             }
-            if($_POST['question0']){
-                if(!$_POST['session_link']){
-                $session_link = bin2hex(random_bytes(5));
-                }else{
-                    $session_link=$_POST['session_link'];
+            if ($_POST['question0']) {
+                if (!$_POST['session_link']) {
+                    $session_link = bin2hex(random_bytes(5));
+                } else {
+                    $session_link = $_POST['session_link'];
                 }
-                $questions=Array();
-                for ($i = 0; $i < $_POST['count_questions']; $i++){
-                    $questions[$i]['type']=$_POST['theme'.$i];
-                    $questions[$i]['question']=$_POST['question'.$i];
+                $questions = Array();
+                for ($i = 0; $i < $_POST['count_questions']; $i++) {
+                    $questions[$i]['type'] = $_POST['theme' . $i];
+                    $questions[$i]['question'] = $_POST['question' . $i];
 //                    if($_POST['theme'.$i]=='radio'||$_POST['theme'.$i]=='checkbox'){
-                        $questions[$i]['options']=$_POST['options'.$i];
+                    $questions[$i]['options'] = $_POST['options' . $i];
 //                    }
-                    $questions[$i]['answer']=$_POST['answer'.$i];
+                    $questions[$i]['answer'] = $_POST['answer' . $i];
                 }
                 $questions = json_encode($questions, JSON_UNESCAPED_UNICODE);
                 $theme = $_POST['theme'];
-                $questions_query="INSERT INTO `sessions` (session_link, session_status, theme, questions) 
+                $questions_query = "INSERT INTO `sessions` (session_link, session_status, theme, questions) 
                         VALUES ('$session_link', 'active', '$theme', '$questions')";
 //                $newSession="CREATE TABLE `std_924.".".".$session_link."`";
                 $result = mysqli_query($link, $questions_query) or die("Ошибка " . mysqli_error($link));
@@ -100,10 +112,10 @@ if($_SESSION['password']=='12345'||$_GET['status']){
             }
             echo '</form>';
         }
-    }else{
+    } else {
         echo 'До связи...';
     }
-}else{
+} else {
     print_r($_SESSION['password']);
     echo '<form action="admin.php" method="post">
     <p>Введите пароль для доступа к этой стрнице: </p><br>
